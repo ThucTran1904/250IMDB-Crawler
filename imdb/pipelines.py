@@ -43,6 +43,8 @@ class SQLlitePipeline(object):
                     duration TEXT,
                     genre TEXT,
                     rating TEXT,
+                    rating_count TEXT,
+                    release_date TEXT,
                     movie_url TEXT
                 )
             
@@ -57,7 +59,7 @@ class SQLlitePipeline(object):
 
     def process_item(self, item, spider):
         self.c.execute('''
-            INSERT INTO best_movies (title,year,duration,genre,rating,movie_url) VALUES(?,?,?,?,?,?)
+            INSERT INTO best_movies (title,year,duration,genre,rating,rating_count,release_date,movie_url) VALUES(?,?,?,?,?,?,?,?)
 
         ''', (
             item.get('title'),
@@ -65,6 +67,8 @@ class SQLlitePipeline(object):
             item.get('duration'),
             item.get('genre'),
             item.get('rating'),
+            item.get('rating_count'),
+            item.get('release_date'),
             item.get('movie_url')
         ))
         self.connection.commit()
