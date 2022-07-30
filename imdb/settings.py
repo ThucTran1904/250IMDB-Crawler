@@ -89,4 +89,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-MONGODB_URI = "Hello World"
+FEED_EXPORT_ENCODING = 'utf-8'
